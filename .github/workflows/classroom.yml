@@ -13,17 +13,17 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v4
-    - name: HW 3
-      id: hw-3
+    - name: HW 3 Test
+      id: hw-3-test
       uses: classroom-resources/autograding-command-grader@v1
       with:
-        test-name: HW 3
+        test-name: HW 3 Test
         setup-command: ''
         command: make test
         timeout: 10
     - name: Autograding Reporter
       uses: classroom-resources/autograding-grading-reporter@v1
       env:
-        HW-3_RESULTS: "${{steps.hw-3.outputs.result}}"
+        HW-3-TEST_RESULTS: "${{steps.hw-3-test.outputs.result}}"
       with:
-        runners: hw-3
+        runners: hw-3-test
